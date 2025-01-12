@@ -1,0 +1,72 @@
+{
+  "annotations": {
+    "changeLogDate": 20250110000000,
+    "changelogDate": "20250111025248",
+    "entityPackage": "brew",
+    "skipFakeData": true
+  },
+  "applications": ["appCoffeeHubApi"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "categoryId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "serving",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "iconUri",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUri",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isPinned",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Brew",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

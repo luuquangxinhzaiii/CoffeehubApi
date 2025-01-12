@@ -1,0 +1,52 @@
+{
+  "annotations": {
+    "changeLogDate": 20250110000000,
+    "changelogDate": "20250111030248",
+    "entityPackage": "cafeteria",
+    "skipFakeData": true
+  },
+  "applications": ["appCoffeeHubApi"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "coffeeShopId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isMainBranch",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "name": "CoffeeShopLocation",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

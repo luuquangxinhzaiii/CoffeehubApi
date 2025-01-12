@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Articles.
+    -->
+    <changeSet id="20250111030648-1" author="jhipster">
+        <createTable tableName="articles">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="body_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="author_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="slug" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="sub_title" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="thumbnail_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="reading_time" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_pinned" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="deleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_at" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_at" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="articles" columnName="created_at" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="articles" columnName="updated_at" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+</databaseChangeLog>

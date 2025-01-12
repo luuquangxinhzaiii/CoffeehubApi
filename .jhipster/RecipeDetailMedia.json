@@ -1,0 +1,44 @@
+{
+  "annotations": {
+    "changeLogDate": 20250110000000,
+    "changelogDate": "20250111025548",
+    "entityPackage": "brew",
+    "skipFakeData": true
+  },
+  "applications": ["appCoffeeHubApi"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "mediaId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "recipeDetailId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "name": "RecipeDetailMedia",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

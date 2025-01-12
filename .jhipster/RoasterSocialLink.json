@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changeLogDate": 20250110000000,
+    "changelogDate": "20250111030548",
+    "entityPackage": "roaster",
+    "skipFakeData": true
+  },
+  "applications": ["appCoffeeHubApi"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "roasterId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "platform",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "RoasterSocialLink",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

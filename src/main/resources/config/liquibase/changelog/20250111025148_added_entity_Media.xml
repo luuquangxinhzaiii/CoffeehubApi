@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Media.
+    -->
+    <changeSet id="20250111025148-1" author="jhipster">
+        <createTable tableName="media">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="entity_type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="entity_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="file_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="file_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="mime_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="file_size" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="file_uri" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="thumbnail_uri" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="width" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="height" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="duration" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_at" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_at" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="media" columnName="created_at" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="media" columnName="updated_at" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+</databaseChangeLog>

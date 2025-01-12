@@ -1,0 +1,4 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    com.ali.coffeehub.config.\
+    SqlTestContainersSpringContextCustomizerFactory,com.ali.coffeehub.config.\
+    RedisTestContainersSpringContextCustomizerFactory

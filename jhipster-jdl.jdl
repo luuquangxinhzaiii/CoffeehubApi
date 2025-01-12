@@ -1,0 +1,380 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName appCoffeeHubApi
+    blueprints []
+    buildTool maven
+    cacheProvider redis
+    clientPackageManager npm
+    databaseType sql
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    dtoSuffix DTO
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    entitySuffix Entity
+    languages [en, vi]
+    nativeLanguage vi
+    reactive false
+    searchEngine false
+    packageName com.ali.coffeehub
+    clientFramework no
+    serverPort 8081
+    serviceDiscoveryType no
+    skipClient true
+    skipUserManagement false
+    testFrameworks []
+    websocket false
+  }
+  entities *
+  service * with serviceClass
+  dto * with mapstruct
+  paginate * with pagination
+}
+
+@skipFakeData
+@changeLogDate(20250110000000)
+entity SystemConfig {
+    key String required
+    value String
+    description String
+    moduleName String
+    isActive Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@changeLogDate(20250110000000)
+entity Category {
+    name String required
+    desciption String 
+    iconUri String
+    deleted Boolean
+    moduleName String
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+
+@skipFakeData
+@changeLogDate(20250110000000)
+entity Tags {
+    id Long required
+    name String required
+    slug String required
+    description String
+    iconUrl String
+    parentId Long
+    displayOrder Integer
+    deleted Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@changeLogDate(20250110000000)
+entity EntityTags {
+    tagId Long required
+    entityType Long required
+    entityId Long required
+    deleted Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@changeLogDate(20250110000000)
+entity Media {
+    name String required
+    entityType String required
+    entityId Long required
+    fileName String required
+    fileType String
+    mimeType String
+    fileSize Long
+    fileUri String required
+    thumbnailUri String
+    width Integer
+    height Integer
+    duration Integer
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity Brew {
+    categoryId Long required
+    name String required
+    description String
+    level Integer
+    serving String
+    iconUri String
+    imageUri String
+    deleted Boolean
+    isPinned Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity Recipe {
+    brewId Long required
+    name String 
+    detail String 
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity RecipeDetail {
+    recipeId Long required
+    detail TextBlob required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity RecipeDetailMedia {
+    mediaId Long required
+    recipeDetailId Long required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity Config {
+    recipeId Long required
+	name String required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity ConfigValue {
+    configId Long required
+    value String required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity Timeline {
+    configId Long required
+    configValueId Long required
+    recipeId Long required
+    startTime Integer required
+    createdAt Instant required
+    ratio Integer 
+    isFixed Boolean
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity Step {
+    brewId Long required
+    name String required
+    detail String required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(brew)
+@changeLogDate(20250110000000)
+entity Tool {
+    brewId Long required
+    detatil String required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(cafeteria)
+@changeLogDate(20250110000000)
+entity CoffeeShop {
+    categoryId Long required
+    name String required
+    logoUri String required
+    deleted Boolean
+    phone String 
+    availableHoursStart Instant 
+    availableHoursEnd Instant
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(cafeteria)
+@changeLogDate(20250110000000)
+entity CoffeeShopLocation {
+    coffeeShopId Long required
+    address String required
+    isMainBranch Boolean
+    deleted Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(cafeteria)
+@changeLogDate(20250110000000)
+entity CoffeeShopReaction {
+    coffeeShopId Long required
+    userId Long required
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(roaster)
+@changeLogDate(20250110000000)
+entity Roaster {
+    categoryId Long
+    name String 
+    description String
+    deleted Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(roaster)
+@changeLogDate(20250110000000)
+entity RoasterSocialLink {
+    roasterId Long required
+    platform Long required
+    url String 
+    deleted Boolean
+}
+
+@skipFakeData
+@entityPackage(article)
+@changeLogDate(20250110000000)
+entity Articles {
+    categoryID Long required
+    bodyId Long required
+    authorId Long required
+    title String required
+    slug String 
+    subTitle String
+    thumbnailUrl String
+    readingTime Integer
+    isPinned Boolean
+    deleted Boolean
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(article)
+@changeLogDate(20250110000000)
+entity ArticleBody {
+	body TextBlob
+}
+
+@skipFakeData
+@entityPackage(article)
+@changeLogDate(20250110000000)
+entity UserArticleInteraction {
+    aticleId Long required
+    userId Long required
+    readProgress Integer
+    isBookmarked Boolean
+    lastReadAt Instant
+    createdAt Instant required
+    createdBy String
+    updatedAt Instant
+    updatedBy String
+}
+
+@skipFakeData
+@entityPackage(article)
+@changeLogDate(20250110000000)
+entity ArticleReaction {
+    aticleId Long required
+    userId Long required
+  	createdAt Instant required
+}
+
+@skipFakeData
+@entityPackage(article)
+@changeLogDate(20250110000000)
+entity ArticleStatistic {
+    aticleId Long required
+	viewCount Integer
+    likeCount Integer
+    commentCount Integer
+    avgTimeSpent Integer
+    createdAt Instant required
+    updatedAt Instant
+}
+
+@skipFakeData
+@entityPackage(article)
+@changeLogDate(20250110000000)
+entity ArticleComment {
+    content TextBlob required
+    articleId Long required
+    userId Long
+    parentId Long 
+    status Boolean
+    createdAt Instant
+    updatedAt Instant
+}

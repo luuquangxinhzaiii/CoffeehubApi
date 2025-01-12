@@ -1,0 +1,47 @@
+{
+  "annotations": {
+    "changeLogDate": 20250110000000,
+    "changelogDate": "20250111031048",
+    "entityPackage": "article",
+    "skipFakeData": true
+  },
+  "applications": ["appCoffeeHubApi"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "aticleId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "viewCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "likeCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "commentCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "avgTimeSpent",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "ArticleStatistic",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
