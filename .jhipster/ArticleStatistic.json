@@ -39,6 +39,7 @@
       "fieldType": "Instant"
     }
   ],
+  "incrementalChangelog": false,
   "name": "ArticleStatistic",
   "pagination": "pagination",
   "relationships": [],

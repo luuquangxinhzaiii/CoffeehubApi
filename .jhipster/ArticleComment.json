@@ -39,6 +39,7 @@
       "fieldType": "Instant"
     }
   ],
+  "incrementalChangelog": false,
   "name": "ArticleComment",
   "pagination": "pagination",
   "relationships": [],

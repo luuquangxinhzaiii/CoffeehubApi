@@ -28,9 +28,9 @@ public class ToolEntity implements Serializable {
     @Column(name = "brew_id", nullable = false)
     private Long brewId;
 
-    @NotNull
-    @Column(name = "detatil", nullable = false)
-    private String detatil;
+    @Lob
+    @Column(name = "detail", nullable = false)
+    private String detail;
 
     @NotNull
     @Column(name = "created_at", nullable = false)
@@ -73,17 +73,17 @@ public class ToolEntity implements Serializable {
         this.brewId = brewId;
     }
 
-    public String getDetatil() {
-        return this.detatil;
+    public String getDetail() {
+        return this.detail;
     }
 
-    public ToolEntity detatil(String detatil) {
-        this.setDetatil(detatil);
+    public ToolEntity detail(String detail) {
+        this.setDetail(detail);
         return this;
     }
 
-    public void setDetatil(String detatil) {
-        this.detatil = detatil;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public Instant getCreatedAt() {
@@ -163,7 +163,7 @@ public class ToolEntity implements Serializable {
         return "ToolEntity{" +
             "id=" + getId() +
             ", brewId=" + getBrewId() +
-            ", detatil='" + getDetatil() + "'" +
+            ", detail='" + getDetail() + "'" +
             ", createdAt='" + getCreatedAt() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", updatedAt='" + getUpdatedAt() + "'" +

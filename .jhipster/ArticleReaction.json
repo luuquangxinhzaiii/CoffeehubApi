@@ -24,6 +24,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "incrementalChangelog": false,
   "name": "ArticleReaction",
   "pagination": "pagination",
   "relationships": [],

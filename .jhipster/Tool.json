@@ -14,8 +14,8 @@
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "detatil",
-      "fieldType": "String",
+      "fieldName": "detail",
+      "fieldType": "TextBlob",
       "fieldValidateRules": ["required"]
     },
     {
@@ -36,6 +36,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Tool",
   "pagination": "pagination",
   "relationships": [],

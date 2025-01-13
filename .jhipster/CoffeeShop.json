@@ -57,6 +57,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "CoffeeShop",
   "pagination": "pagination",
   "relationships": [],

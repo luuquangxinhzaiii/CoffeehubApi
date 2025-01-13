@@ -48,6 +48,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "UserArticleInteraction",
   "pagination": "pagination",
   "relationships": [],

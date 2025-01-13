@@ -46,6 +46,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "SystemConfig",
   "pagination": "pagination",
   "relationships": [],

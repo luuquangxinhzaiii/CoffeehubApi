@@ -54,6 +54,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Timeline",
   "pagination": "pagination",
   "relationships": [],

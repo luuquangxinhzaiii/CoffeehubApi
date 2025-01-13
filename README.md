@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# CofeeHubApi
-=======
 # appCoffeeHubApi
 
 This application was generated using JHipster 8.8.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.8.0](https://www.jhipster.tech/documentation-archive/v8.8.0).
@@ -170,4 +167,3 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v8.8.0/setting-up-ci/
 [Node.js]: https://nodejs.org/
 [NPM]: https://www.npmjs.com/
->>>>>>> 54a1add (init project)

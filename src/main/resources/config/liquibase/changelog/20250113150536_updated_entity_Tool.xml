@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added columns to the entity Tool.
+    -->
+    <changeSet id="20250113150536-1-add-columns" author="jhipster">
+        <addColumn tableName="tool">
+            <column name="detail" type="${clobType}"/>
+        </addColumn>
+    </changeSet>
+
+    <!--
+        Dropped columns to the entity Tool.
+    -->
+    <changeSet id="20250113150536-1-drop-columns" author="jhipster">
+        <dropColumn tableName="tool">
+            <column name="detatil"/>
+        </dropColumn>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+</databaseChangeLog>

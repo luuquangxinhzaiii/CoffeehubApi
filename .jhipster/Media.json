@@ -78,6 +78,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Media",
   "pagination": "pagination",
   "relationships": [],

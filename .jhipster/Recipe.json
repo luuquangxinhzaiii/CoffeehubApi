@@ -39,6 +39,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Recipe",
   "pagination": "pagination",
   "relationships": [],

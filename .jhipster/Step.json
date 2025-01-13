@@ -41,6 +41,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Step",
   "pagination": "pagination",
   "relationships": [],

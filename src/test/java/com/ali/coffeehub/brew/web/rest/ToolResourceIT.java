@@ -39,8 +39,8 @@ class ToolResourceIT {
     private static final Long DEFAULT_BREW_ID = 1L;
     private static final Long UPDATED_BREW_ID = 2L;
 
-    private static final String DEFAULT_DETATIL = "AAAAAAAAAA";
-    private static final String UPDATED_DETATIL = "BBBBBBBBBB";
+    private static final String DEFAULT_DETAIL = "AAAAAAAAAA";
+    private static final String UPDATED_DETAIL = "BBBBBBBBBB";
 
     private static final Instant DEFAULT_CREATED_AT = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_CREATED_AT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
@@ -88,7 +88,7 @@ class ToolResourceIT {
     public static ToolEntity createEntity() {
         return new ToolEntity()
             .brewId(DEFAULT_BREW_ID)
-            .detatil(DEFAULT_DETATIL)
+            .detail(DEFAULT_DETAIL)
             .createdAt(DEFAULT_CREATED_AT)
             .createdBy(DEFAULT_CREATED_BY)
             .updatedAt(DEFAULT_UPDATED_AT)
@@ -104,7 +104,7 @@ class ToolResourceIT {
     public static ToolEntity createUpdatedEntity() {
         return new ToolEntity()
             .brewId(UPDATED_BREW_ID)
-            .detatil(UPDATED_DETATIL)
+            .detail(UPDATED_DETAIL)
             .createdAt(UPDATED_CREATED_AT)
             .createdBy(UPDATED_CREATED_BY)
             .updatedAt(UPDATED_UPDATED_AT)
@@ -185,23 +185,6 @@ class ToolResourceIT {
 
     @Test
     @Transactional
-    void checkDetatilIsRequired() throws Exception {
-        long databaseSizeBeforeTest = getRepositoryCount();
-        // set the field null
-        toolEntity.setDetatil(null);
-
-        // Create the Tool, which fails.
-        ToolDTO toolDTO = toolMapper.toDto(toolEntity);
-
-        restToolMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(toolDTO)))
-            .andExpect(status().isBadRequest());
-
-        assertSameRepositoryCount(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     void checkCreatedAtIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -230,7 +213,7 @@ class ToolResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(toolEntity.getId().intValue())))
             .andExpect(jsonPath("$.[*].brewId").value(hasItem(DEFAULT_BREW_ID.intValue())))
-            .andExpect(jsonPath("$.[*].detatil").value(hasItem(DEFAULT_DETATIL)))
+            .andExpect(jsonPath("$.[*].detail").value(hasItem(DEFAULT_DETAIL)))
             .andExpect(jsonPath("$.[*].createdAt").value(hasItem(DEFAULT_CREATED_AT.toString())))
             .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
             .andExpect(jsonPath("$.[*].updatedAt").value(hasItem(DEFAULT_UPDATED_AT.toString())))
@@ -250,7 +233,7 @@ class ToolResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(toolEntity.getId().intValue()))
             .andExpect(jsonPath("$.brewId").value(DEFAULT_BREW_ID.intValue()))
-            .andExpect(jsonPath("$.detatil").value(DEFAULT_DETATIL))
+            .andExpect(jsonPath("$.detail").value(DEFAULT_DETAIL))
             .andExpect(jsonPath("$.createdAt").value(DEFAULT_CREATED_AT.toString()))
             .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
             .andExpect(jsonPath("$.updatedAt").value(DEFAULT_UPDATED_AT.toString()))
@@ -278,7 +261,7 @@ class ToolResourceIT {
         em.detach(updatedToolEntity);
         updatedToolEntity
             .brewId(UPDATED_BREW_ID)
-            .detatil(UPDATED_DETATIL)
+            .detail(UPDATED_DETAIL)
             .createdAt(UPDATED_CREATED_AT)
             .createdBy(UPDATED_CREATED_BY)
             .updatedAt(UPDATED_UPDATED_AT)
@@ -401,7 +384,7 @@ class ToolResourceIT {
 
         partialUpdatedToolEntity
             .brewId(UPDATED_BREW_ID)
-            .detatil(UPDATED_DETATIL)
+            .detail(UPDATED_DETAIL)
             .createdAt(UPDATED_CREATED_AT)
             .createdBy(UPDATED_CREATED_BY)
             .updatedAt(UPDATED_UPDATED_AT)

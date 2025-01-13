@@ -60,6 +60,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Tags",
   "pagination": "pagination",
   "relationships": [],

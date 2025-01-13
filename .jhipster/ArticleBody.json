@@ -13,6 +13,7 @@
       "fieldType": "TextBlob"
     }
   ],
+  "incrementalChangelog": false,
   "name": "ArticleBody",
   "pagination": "pagination",
   "relationships": [],

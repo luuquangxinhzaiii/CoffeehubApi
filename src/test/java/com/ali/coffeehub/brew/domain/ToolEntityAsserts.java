@@ -48,7 +48,7 @@ public class ToolEntityAsserts {
         assertThat(expected)
             .as("Verify ToolEntity relevant properties")
             .satisfies(e -> assertThat(e.getBrewId()).as("check brewId").isEqualTo(actual.getBrewId()))
-            .satisfies(e -> assertThat(e.getDetatil()).as("check detatil").isEqualTo(actual.getDetatil()))
+            .satisfies(e -> assertThat(e.getDetail()).as("check detail").isEqualTo(actual.getDetail()))
             .satisfies(e -> assertThat(e.getCreatedAt()).as("check createdAt").isEqualTo(actual.getCreatedAt()))
             .satisfies(e -> assertThat(e.getCreatedBy()).as("check createdBy").isEqualTo(actual.getCreatedBy()))
             .satisfies(e -> assertThat(e.getUpdatedAt()).as("check updatedAt").isEqualTo(actual.getUpdatedAt()))

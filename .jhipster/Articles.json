@@ -70,6 +70,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Articles",
   "pagination": "pagination",
   "relationships": [],

@@ -1,5 +1,6 @@
 package com.ali.coffeehub.brew.service.dto;
 
+import jakarta.persistence.Lob;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -16,8 +17,8 @@ public class ToolDTO implements Serializable {
     @NotNull
     private Long brewId;
 
-    @NotNull
-    private String detatil;
+    @Lob
+    private String detail;
 
     @NotNull
     private Instant createdAt;
@@ -44,12 +45,12 @@ public class ToolDTO implements Serializable {
         this.brewId = brewId;
     }
 
-    public String getDetatil() {
-        return detatil;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setDetatil(String detatil) {
-        this.detatil = detatil;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public Instant getCreatedAt() {
@@ -111,7 +112,7 @@ public class ToolDTO implements Serializable {
         return "ToolDTO{" +
             "id=" + getId() +
             ", brewId=" + getBrewId() +
-            ", detatil='" + getDetatil() + "'" +
+            ", detail='" + getDetail() + "'" +
             ", createdAt='" + getCreatedAt() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", updatedAt='" + getUpdatedAt() + "'" +

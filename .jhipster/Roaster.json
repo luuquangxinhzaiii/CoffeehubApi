@@ -42,6 +42,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Roaster",
   "pagination": "pagination",
   "relationships": [],

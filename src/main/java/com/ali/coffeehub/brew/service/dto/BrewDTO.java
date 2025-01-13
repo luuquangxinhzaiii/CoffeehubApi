@@ -1,6 +1,5 @@
 package com.ali.coffeehub.brew.service.dto;
 
-import com.ali.coffeehub.service.dto.AbstractAuditingDTO;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -10,7 +9,7 @@ import java.util.Objects;
  * A DTO for the {@link com.ali.coffeehub.brew.domain.BrewEntity} entity.
  */
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class BrewDTO extends AbstractAuditingDTO implements Serializable {
+public class BrewDTO implements Serializable {
 
     private Long id;
 

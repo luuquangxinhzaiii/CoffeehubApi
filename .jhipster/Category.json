@@ -46,6 +46,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Category",
   "pagination": "pagination",
   "relationships": [],

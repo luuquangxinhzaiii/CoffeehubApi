@@ -27,6 +27,7 @@
       "fieldType": "Boolean"
     }
   ],
+  "incrementalChangelog": false,
   "name": "RoasterSocialLink",
   "pagination": "pagination",
   "relationships": [],

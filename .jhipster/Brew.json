@@ -64,6 +64,7 @@
       "fieldType": "String"
     }
   ],
+  "incrementalChangelog": false,
   "name": "Brew",
   "pagination": "pagination",
   "relationships": [],
