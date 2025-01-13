@@ -1,5 +1,6 @@
 package com.ali.coffeehub.brew.domain;
 
+import com.ali.coffeehub.service.business.AbstractEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;

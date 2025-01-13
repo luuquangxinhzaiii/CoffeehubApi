@@ -52,7 +52,7 @@ entity SystemConfig {
 @changeLogDate(20250110000000)
 entity Category {
     name String required
-    desciption String 
+    desciption String
     iconUri String
     deleted Boolean
     moduleName String
@@ -138,8 +138,8 @@ entity Brew {
 @changeLogDate(20250110000000)
 entity Recipe {
     brewId Long required
-    name String 
-    detail String 
+    name String
+    detail String
     createdAt Instant required
     createdBy String
     updatedAt Instant
@@ -175,7 +175,7 @@ entity RecipeDetailMedia {
 @changeLogDate(20250110000000)
 entity Config {
     recipeId Long required
-	name String required
+	  name String required
     createdAt Instant required
     createdBy String
     updatedAt Instant
@@ -203,7 +203,7 @@ entity Timeline {
     recipeId Long required
     startTime Integer required
     createdAt Instant required
-    ratio Integer 
+    ratio Integer
     isFixed Boolean
     createdBy String
     updatedAt Instant
@@ -228,7 +228,7 @@ entity Step {
 @changeLogDate(20250110000000)
 entity Tool {
     brewId Long required
-    detatil String required
+    detail TextBlob required
     createdAt Instant required
     createdBy String
     updatedAt Instant
@@ -243,8 +243,8 @@ entity CoffeeShop {
     name String required
     logoUri String required
     deleted Boolean
-    phone String 
-    availableHoursStart Instant 
+    phone String
+    availableHoursStart Instant
     availableHoursEnd Instant
     createdAt Instant required
     createdBy String
@@ -283,7 +283,7 @@ entity CoffeeShopReaction {
 @changeLogDate(20250110000000)
 entity Roaster {
     categoryId Long
-    name String 
+    name String
     description String
     deleted Boolean
     createdAt Instant required
@@ -298,7 +298,7 @@ entity Roaster {
 entity RoasterSocialLink {
     roasterId Long required
     platform Long required
-    url String 
+    url String
     deleted Boolean
 }
 
@@ -310,7 +310,7 @@ entity Articles {
     bodyId Long required
     authorId Long required
     title String required
-    slug String 
+    slug String
     subTitle String
     thumbnailUrl String
     readingTime Integer
@@ -373,7 +373,7 @@ entity ArticleComment {
     content TextBlob required
     articleId Long required
     userId Long
-    parentId Long 
+    parentId Long
     status Boolean
     createdAt Instant
     updatedAt Instant
