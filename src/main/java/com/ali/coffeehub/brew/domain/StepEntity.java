@@ -32,7 +32,7 @@ public class StepEntity implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @NotNull
+    @Lob
     @Column(name = "detail", nullable = false)
     private String detail;
 

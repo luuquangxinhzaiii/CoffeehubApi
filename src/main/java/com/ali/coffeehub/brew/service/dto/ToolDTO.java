@@ -17,6 +17,9 @@ public class ToolDTO implements Serializable {
     @NotNull
     private Long brewId;
 
+    @NotNull
+    private String name;
+
     @Lob
     private String detail;
 
@@ -43,6 +46,14 @@ public class ToolDTO implements Serializable {
 
     public void setBrewId(Long brewId) {
         this.brewId = brewId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDetail() {
@@ -112,6 +123,7 @@ public class ToolDTO implements Serializable {
         return "ToolDTO{" +
             "id=" + getId() +
             ", brewId=" + getBrewId() +
+            ", name='" + getName() + "'" +
             ", detail='" + getDetail() + "'" +
             ", createdAt='" + getCreatedAt() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +

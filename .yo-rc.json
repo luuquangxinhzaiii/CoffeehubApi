@@ -47,7 +47,7 @@
     "jhipsterVersion": "8.8.0",
     "jwtSecretKey": "YTgwYWYyODIwM2E3NDQzZDU2MzgxOWY3OTlhZGY2ZmYxYjhhZGNlNDBiMjVlN2JkYWU0ZGRjMDc0NjJmY2RhYjdjNGY0NWNkYmE0MGYzYzJkNjMxZTA1M2VkOWZmNjEzODk5ZmMyMjI4NjMzYzlhNjBiYWU3MmMwMjYwMDI5NDM=",
     "languages": ["vi", "en"],
-    "lastLiquibaseTimestamp": 1736780736000,
+    "lastLiquibaseTimestamp": 1736864117000,
     "nativeLanguage": "vi",
     "packageName": "com.ali.coffeehub",
     "prodDatabaseType": "postgresql",

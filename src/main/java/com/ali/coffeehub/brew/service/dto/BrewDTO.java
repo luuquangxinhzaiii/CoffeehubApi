@@ -1,198 +1,291 @@
 package com.ali.coffeehub.brew.service.dto;
 
+import com.ali.coffeehub.brew.web.rest.vm.RecipeVM;
+import com.ali.coffeehub.brew.web.rest.vm.StepVM;
+import com.ali.coffeehub.brew.web.rest.vm.ToolVM;
+import com.ali.coffeehub.service.dto.AbstractAuditingDTO;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A DTO for the {@link com.ali.coffeehub.brew.domain.BrewEntity} entity.
  */
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class BrewDTO implements Serializable {
+public class BrewDTO extends AbstractAuditingDTO implements Serializable {
 
-    private Long id;
-
-    @NotNull
-    private Long categoryId;
+    private final Long id;
 
     @NotNull
-    private String name;
-
-    private String description;
-
-    private Integer level;
-
-    private String serving;
-
-    private String iconUri;
-
-    private String imageUri;
-
-    private Boolean deleted;
-
-    private Boolean isPinned;
+    @Schema(description = "Category id", requiredMode = Schema.RequiredMode.REQUIRED)
+    private final Long categoryId;
 
     @NotNull
-    private Instant createdAt;
+    @Schema(description = "brew name", requiredMode = Schema.RequiredMode.REQUIRED)
+    private final String name;
 
-    private String createdBy;
+    @Schema(description = "Brew method description")
+    private final String description;
 
-    private Instant updatedAt;
+    @Schema(description = "level")
+    private final Integer level;
 
-    private String updatedBy;
+    @Schema(description = "Serving type")
+    private final String serving;
+
+    @Schema(description = "icon uri")
+    private final String iconUri;
+
+    @Schema(description = "image uri")
+    private final String imageUri;
+
+    @NotNull
+    @Schema(description = "Soft delete", requiredMode = Schema.RequiredMode.REQUIRED)
+    private final Boolean deleted;
+
+    @Schema(description = "pin status")
+    private final Boolean isPinned;
+
+    @NotNull
+    @Schema(description = "recipes")
+    private final Set<RecipeDTO> recipes;
+
+    @NotNull
+    @Schema(description = "steps")
+    private final Set<StepDTO> steps;
+
+    @NotNull
+    @Schema(description = "tools")
+    private final Set<ToolDTO> tool;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getCategoryId() {
+    public @NotNull Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getName() {
+    public @NotNull String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Integer getLevel() {
         return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
     }
 
     public String getServing() {
         return serving;
     }
 
-    public void setServing(String serving) {
-        this.serving = serving;
-    }
-
     public String getIconUri() {
         return iconUri;
-    }
-
-    public void setIconUri(String iconUri) {
-        this.iconUri = iconUri;
     }
 
     public String getImageUri() {
         return imageUri;
     }
 
-    public void setImageUri(String imageUri) {
-        this.imageUri = imageUri;
-    }
-
-    public Boolean getDeleted() {
+    public @NotNull Boolean getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
-
-    public Boolean getIsPinned() {
+    public Boolean getPinned() {
         return isPinned;
     }
 
-    public void setIsPinned(Boolean isPinned) {
-        this.isPinned = isPinned;
+    public @NotNull Set<RecipeDTO> getRecipes() {
+        return recipes;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
+    public @NotNull Set<StepDTO> getSteps() {
+        return steps;
     }
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
+    public @NotNull Set<ToolDTO> getTool() {
+        return tool;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public BrewDTO(Builder builder){
+        this.id = builder.getId();
+        this.categoryId = builder.categoryId;
+        this.name = builder.name;
+        this.description = builder.description;
+        this.level = builder.level;
+        this.serving = builder.serving;
+        this.iconUri = builder.iconUri;
+        this.imageUri = builder.imageUri;
+        this.deleted = builder.deleted;
+        this.isPinned = builder.isPinned;
+        this.recipes = Optional.ofNullable(builder.getRecipes())
+            .orElseGet(Collections::emptySet)
+            .stream()
+            .filter(Objects::nonNull)
+            .map(RecipeDTO.Builder::build)
+            .collect(Collectors.toSet());
+        this.steps = Optional.ofNullable(builder.getSteps())
+            .orElseGet(Collections::emptySet)
+            .stream()
+            .filter(Objects::nonNull)
+            .map(StepDTO.Builder::build)
+            .collect(Collectors.toSet());
+        this.tool = Optional.ofNullable(builder.getTool())
+            .orElseGet(Collections::emptySet)
+            .stream()
+            .filter(Objects::nonNull)
+            .map(ToolDTO.Builder::build)
+            .collect(Collectors.toSet());
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
+    public static class Builder {
+        private Long id;
+        private Long categoryId;
+        private String name;
+        private String description;
+        private Integer level;
+        private String serving;
+        private String iconUri;
+        private String imageUri;
+        private Boolean deleted;
+        private Boolean isPinned;
+        private Set<RecipeDTO> recipes;
+        private Set<StepDTO> steps;
+        private Set<ToolDTO> tool;
 
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+        public Long getId() {
+            return id;
         }
-        if (!(o instanceof BrewDTO)) {
-            return false;
+
+        public Long getCategoryId() {
+            return categoryId;
         }
 
-        BrewDTO brewDTO = (BrewDTO) o;
-        if (this.id == null) {
-            return false;
+        public String getName() {
+            return name;
         }
-        return Objects.equals(this.id, brewDTO.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.id);
-    }
+        public String getDescription() {
+            return description;
+        }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "BrewDTO{" +
-            "id=" + getId() +
-            ", categoryId=" + getCategoryId() +
-            ", name='" + getName() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", level=" + getLevel() +
-            ", serving='" + getServing() + "'" +
-            ", iconUri='" + getIconUri() + "'" +
-            ", imageUri='" + getImageUri() + "'" +
-            ", deleted='" + getDeleted() + "'" +
-            ", isPinned='" + getIsPinned() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
-            "}";
+        public Integer getLevel() {
+            return level;
+        }
+
+        public String getServing() {
+            return serving;
+        }
+
+        public String getIconUri() {
+            return iconUri;
+        }
+
+        public String getImageUri() {
+            return imageUri;
+        }
+
+        public Boolean getDeleted() {
+            return deleted;
+        }
+
+        public Boolean getPinned() {
+            return isPinned;
+        }
+
+        public Set<RecipeDTO> getRecipes() {
+            return recipes;
+        }
+
+        public Set<StepDTO> getSteps() {
+            return steps;
+        }
+
+        public Set<ToolDTO> getTool() {
+            return tool;
+        }
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder categoryId(Long categoryId) {
+            this.categoryId = categoryId;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder level(Integer level) {
+            this.level = level;
+            return this;
+        }
+
+        public Builder serving(String serving) {
+            this.serving = serving;
+            return this;
+        }
+
+        public Builder iconUri(String iconUri) {
+            this.iconUri = iconUri;
+            return this;
+        }
+
+        public Builder imageUri(String imageUri) {
+            this.imageUri = imageUri;
+            return this;
+        }
+
+        public Builder deleted(Boolean deleted) {
+            this.deleted = deleted;
+            return this;
+        }
+
+        public Builder isPinned(Boolean isPinned) {
+            this.isPinned = isPinned;
+            return this;
+        }
+
+        public Builder recipes(Set<RecipeDTO> recipes) {
+            this.recipes = recipes;
+            return this;
+        }
+
+        public Builder steps(Set<StepDTO> steps) {
+            this.steps = steps;
+            return this;
+        }
+
+        public Builder tool(Set<ToolDTO> tool) {
+            this.tool = tool;
+            return this;
+        }
+
+        public BrewDTO build() {
+            return new BrewDTO(this);
+        }
     }
 }

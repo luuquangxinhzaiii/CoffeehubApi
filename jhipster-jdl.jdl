@@ -216,7 +216,7 @@ entity Timeline {
 entity Step {
     brewId Long required
     name String required
-    detail String required
+    detail TextBlob required
     createdAt Instant required
     createdBy String
     updatedAt Instant
@@ -228,6 +228,7 @@ entity Step {
 @changeLogDate(20250110000000)
 entity Tool {
     brewId Long required
+    name String required
     detail TextBlob required
     createdAt Instant required
     createdBy String

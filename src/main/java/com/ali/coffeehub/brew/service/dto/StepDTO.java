@@ -1,5 +1,6 @@
 package com.ali.coffeehub.brew.service.dto;
 
+import jakarta.persistence.Lob;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -19,7 +20,7 @@ public class StepDTO implements Serializable {
     @NotNull
     private String name;
 
-    @NotNull
+    @Lob
     private String detail;
 
     @NotNull

@@ -20,7 +20,7 @@
     },
     {
       "fieldName": "detail",
-      "fieldType": "String",
+      "fieldType": "TextBlob",
       "fieldValidateRules": ["required"]
     },
     {

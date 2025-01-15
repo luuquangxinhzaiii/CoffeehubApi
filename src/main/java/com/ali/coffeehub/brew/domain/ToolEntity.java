@@ -28,6 +28,10 @@ public class ToolEntity implements Serializable {
     @Column(name = "brew_id", nullable = false)
     private Long brewId;
 
+    @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Lob
     @Column(name = "detail", nullable = false)
     private String detail;
@@ -71,6 +75,19 @@ public class ToolEntity implements Serializable {
 
     public void setBrewId(Long brewId) {
         this.brewId = brewId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public ToolEntity name(String name) {
+        this.setName(name);
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDetail() {
@@ -163,6 +180,7 @@ public class ToolEntity implements Serializable {
         return "ToolEntity{" +
             "id=" + getId() +
             ", brewId=" + getBrewId() +
+            ", name='" + getName() + "'" +
             ", detail='" + getDetail() + "'" +
             ", createdAt='" + getCreatedAt() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +

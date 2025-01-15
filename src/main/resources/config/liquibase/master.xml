@@ -41,5 +41,8 @@
     <include file="config/liquibase/changelog/20250113150535_updated_entity_Tags.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250113150536_updated_entity_Tool.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250113150536_updated_entity_constraints_Tool.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250114141516_updated_entity_Tags.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250114141517_updated_entity_Tool.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250114141517_updated_entity_constraints_Tool.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
