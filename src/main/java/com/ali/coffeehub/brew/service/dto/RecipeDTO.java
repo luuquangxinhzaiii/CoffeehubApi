@@ -1,5 +1,6 @@
 package com.ali.coffeehub.brew.service.dto;
 
+import com.ali.coffeehub.service.dto.AbstractAuditingDTO;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -9,123 +10,89 @@ import java.util.Objects;
  * A DTO for the {@link com.ali.coffeehub.brew.domain.RecipeEntity} entity.
  */
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class RecipeDTO implements Serializable {
+public class RecipeDTO extends AbstractAuditingDTO implements Serializable {
 
-    private Long id;
-
-    @NotNull
-    private Long brewId;
-
-    private String name;
-
-    private String detail;
+    private final Long id;
 
     @NotNull
-    private Instant createdAt;
+    private final Long brewId;
 
-    private String createdBy;
+    private final String name;
 
-    private Instant updatedAt;
-
-    private String updatedBy;
+    private final String detail;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getBrewId() {
+    public @NotNull Long getBrewId() {
         return brewId;
-    }
-
-    public void setBrewId(Long brewId) {
-        this.brewId = brewId;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDetail() {
         return detail;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+
+    private RecipeDTO(Builder builder) {
+        this.id = builder.getId();
+        this.brewId = builder.getBrewId();
+        this.name = builder.getName();
+        this.detail = builder.getDetail();
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
+    public static class Builder {
+        private Long id;
+        private Long brewId;
+        private String name;
+        private String detail;
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof RecipeDTO)) {
-            return false;
+        public Long getId() {
+            return id;
         }
 
-        RecipeDTO recipeDTO = (RecipeDTO) o;
-        if (this.id == null) {
-            return false;
+        public Long getBrewId() {
+            return brewId;
         }
-        return Objects.equals(this.id, recipeDTO.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.id);
-    }
+        public String getName() {
+            return name;
+        }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "RecipeDTO{" +
-            "id=" + getId() +
-            ", brewId=" + getBrewId() +
-            ", name='" + getName() + "'" +
-            ", detail='" + getDetail() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
-            "}";
+        public String getDetail() {
+            return detail;
+        }
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder brewId(Long brewId) {
+            this.brewId = brewId;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder detail(String detail) {
+            this.detail = detail;
+            return this;
+        }
+
+        public RecipeDTO build() {
+            return new RecipeDTO(this);
+        }
     }
 }

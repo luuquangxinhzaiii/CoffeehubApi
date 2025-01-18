@@ -162,9 +162,9 @@ public class BrewDTO extends AbstractAuditingDTO implements Serializable {
         private String imageUri;
         private Boolean deleted;
         private Boolean isPinned;
-        private Set<RecipeDTO> recipes;
-        private Set<StepDTO> steps;
-        private Set<ToolDTO> tool;
+        private Set<RecipeDTO.Builder> recipes;
+        private Set<StepDTO.Builder> steps;
+        private Set<ToolDTO.Builder> tool;
 
 
         public Long getId() {
@@ -207,15 +207,15 @@ public class BrewDTO extends AbstractAuditingDTO implements Serializable {
             return isPinned;
         }
 
-        public Set<RecipeDTO> getRecipes() {
+        public Set<RecipeDTO.Builder> getRecipes() {
             return recipes;
         }
 
-        public Set<StepDTO> getSteps() {
+        public Set<StepDTO.Builder> getSteps() {
             return steps;
         }
 
-        public Set<ToolDTO> getTool() {
+        public Set<ToolDTO.Builder> getTool() {
             return tool;
         }
 
@@ -269,17 +269,17 @@ public class BrewDTO extends AbstractAuditingDTO implements Serializable {
             return this;
         }
 
-        public Builder recipes(Set<RecipeDTO> recipes) {
+        public Builder recipes(Set<RecipeDTO.Builder> recipes) {
             this.recipes = recipes;
             return this;
         }
 
-        public Builder steps(Set<StepDTO> steps) {
+        public Builder steps(Set<StepDTO.Builder> steps) {
             this.steps = steps;
             return this;
         }
 
-        public Builder tool(Set<ToolDTO> tool) {
+        public Builder tool(Set<ToolDTO.Builder> tool) {
             this.tool = tool;
             return this;
         }
